@@ -1,0 +1,96 @@
+:: StoryTitle
+simulação
+
+
+:: StoryData
+{
+  "ifid": "B9F088AD-65B0-40E5-8624-B4D44407E3D9",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "Sala Branca",
+  "zoom": 1
+}
+
+
+:: \ Opção de investigação profunda (terminal exibe erro) {"position":"300,775","size":"100,100"}
+[[Investigar melhor a sala]][[Ignorar erro e tentar outra porta]]
+
+
+:: Continuar Explorando o terminal {"position":"300,525","size":"100,100"}
+[[Descobrir Mensagens Enigmáticas Sobre a "Realidade"]]
+
+
+:: Descobrir Mensagens Enigmáticas Sobre a "Realidade" {"position":"300,650","size":"100,100"}
+[[ Opção de investigação profunda (terminal exibe erro)]][[Ignorar revelação e tentar a porta]]
+
+
+:: Encontrar nova sala com glitches {"position":"575,1075","size":"100,100"}
+[[Tocar no glitch]] [[Entrar na porta "saída"]] 
+
+
+:: Entrar na porta "saída" {"position":"300,1275","size":"100,100"}
+[[Sala Branca]]
+
+
+:: Entrar na porta secreta {"position":"300,1025","size":"100,100"}
+[[Interagir com terminal na nova sala]]
+
+
+:: Explorar Terminal {"position":"275,400","size":"100,100"}
+[[Continuar Explorando o terminal]]
+
+
+:: Ignorar a mensagem e seguir para próxima sala {"position":"1225,1150","size":"100,100"}
+[[Terminal com mensagem pessoal ]]
+
+
+:: Ignorar erro e tentar outra porta {"position":"475,900","size":"100,100"}
+[[Encontrar nova sala com glitches]]
+
+
+:: Ignorar objeto e seguir pela porta {"position":"650,875","size":"100,100"}
+[[Encontrar nova sala com glitches]]
+
+
+:: Ignorar revelação e tentar a porta {"position":"575,575","size":"100,100"}
+[[Sala com objeto estranho (cadeira virada ou livro)]]
+
+
+:: Inspecionar objeto {"position":"1075,875","size":"100,100"}
+[[Objeto contém mensagem oculta ("Você não pertence aqui")]]
+
+
+:: Interagir com terminal na nova sala {"position":"300,1150","size":"100,100"}
+[[Entrar na porta "saída"]]
+
+
+:: Investigar melhor a sala {"position":"300,900","size":"100,100"}
+[[Entrar na porta secreta]]
+
+
+:: Investigar mensagem pessoal (descobre mais sobre o jogador) {"position":"1225,1400","size":"100,100"}
+[[Encontrar nova sala com glitches]] 
+
+
+:: Objeto contém mensagem oculta ("Você não pertence aqui") {"position":"1225,1025","size":"100,100"}
+[[Ignorar a mensagem e seguir para próxima sala]]
+
+
+:: Sala Branca {"position":"250,0","size":"100,100"}
+[[Explorar Terminal]] [[Tentar a porta]]
+
+
+:: Sala com objeto estranho (cadeira virada ou livro) {"position":"775,725","size":"100,100"}
+[[Ignorar objeto e seguir pela porta]] [[Inspecionar objeto]] 
+
+
+:: Tentar a porta {"position":"600,175","size":"100,100"}
+[[Sala com objeto estranho (cadeira virada ou livro)]] 
+
+
+:: Terminal com mensagem pessoal\  {"position":"1225,1275","size":"100,100"}
+[[Investigar mensagem pessoal (descobre mais sobre o jogador)]]
+
+
+:: Tocar no glitch {"position":"725,1375","size":"100,100"}
+[[Sala Branca]] 
