@@ -1,0 +1,140 @@
+:: StoryTitle
+simulação
+
+
+:: StoryData
+{
+  "ifid": "B9F088AD-65B0-40E5-8624-B4D44407E3D9",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "Sala Branca",
+  "zoom": 0.3
+}
+
+
+:: \ Investigar o terminal {"position":"525,1525","size":"100,100"}
+[[Escolher "Comando de Escape"]]
+
+
+:: \ Opção de investigação profunda (terminal exibe erro) {"position":"300,875","size":"100,100"}
+[[Investigar melhor a sala]][[Ignorar erro e tentar outra porta]]
+
+
+:: Continuar Explorando o terminal {"position":"200,425","size":"100,100"}
+[[Descobrir Mensagens Enigmáticas Sobre a "Realidade"]][[Ignorar mensagens enigmaticas]]
+
+
+:: Descobrir Mensagens Enigmáticas Sobre a "Realidade" {"position":"350,600","size":"100,100"}
+[[ Opção de investigação profunda (terminal exibe erro)]][[Ignorar revelação e tentar a porta]]
+
+
+:: Encontrar "Observador" {"position":"1725,1050","size":"100,100"}
+[[Seguir dica do Observador]] [[Ignorar dica do Observador]]
+
+
+:: Encontrar nova sala com glitches {"position":"550,1225","size":"100,100"}
+[[Tocar no glitch]] [[Entrar na porta "saída"]] [[ Investigar o terminal]] [[Observar Glitch]]
+
+
+:: Entrar na porta "saída" {"position":"375,1750","size":"100,100"}
+[[Sala Branca]]
+
+
+:: Entrar na porta escondida {"position":"1850,1725","size":"100,100"}
+[[Saida Definitiva]]
+
+
+:: Entrar na porta secreta {"position":"250,1250","size":"100,100"}
+[[Interagir com terminal na nova sala]]
+
+
+:: Escolher "Comando de Escape" {"position":"900,1675","size":"100,100"}
+[[Sala Branca]] 
+
+
+:: Explorar Terminal {"position":"25,300","size":"100,100"}
+[[Continuar Explorando o terminal]]
+
+
+:: Ignorar a mensagem e seguir para próxima sala {"position":"1150,1075","size":"100,100"}
+[[Terminal com mensagem pessoal ]] [[Encontrar "Observador"]]
+
+
+:: Ignorar dica do Observador {"position":"1850,1400","size":"100,100"}
+[[Encontrar nova sala com glitches]] [[Responder enigma do "observador"]]
+
+
+:: Ignorar erro e tentar outra porta {"position":"475,1025","size":"100,100"}
+[[Encontrar nova sala com glitches]]
+
+
+:: Ignorar mensagens enigmaticas {"position":"425,300","size":"100,100"}
+[[Tentar a porta]] 
+
+
+:: Ignorar objeto e seguir pela porta {"position":"650,875","size":"100,100"}
+[[Encontrar nova sala com glitches]]
+
+
+:: Ignorar revelação e tentar a porta {"position":"550,650","size":"100,100"}
+[[Sala com objeto estranho (cadeira virada ou livro)]]
+
+
+:: Inspecionar objeto {"position":"1050,750","size":"100,100"}
+[[Objeto contém mensagem oculta ("Você não pertence aqui")]] [[pegar foto ativa "flashback"]]
+
+
+:: Interagir com terminal na nova sala {"position":"300,1450","size":"100,100"}
+[[Entrar na porta "saída"]]
+
+
+:: Investigar melhor a sala {"position":"75,1075","size":"100,100"}
+[[Entrar na porta secreta]]
+
+
+:: Investigar mensagem pessoal (descobre mais sobre o jogador) {"position":"1200,1475","size":"100,100"}
+[[Encontrar nova sala com glitches]]
+
+
+:: Objeto contém mensagem oculta ("Você não pertence aqui") {"position":"925,975","size":"100,100"}
+[[Ignorar a mensagem e seguir para próxima sala]]
+
+
+:: Observar Glitch {"position":"725,1375","size":"100,100"}
+[[Encontrar "Observador"]] 
+
+
+:: Responder enigma do "observador" {"position":"1850,1600","size":"100,100"}
+[[Entrar na porta escondida]]
+
+
+:: Saida Definitiva {"position":"1850,1850","size":"100,100"}
+
+
+
+:: Sala Branca {"position":"250,0","size":"100,100"}
+[[Explorar Terminal]] [[Tentar a porta]]
+
+
+:: Sala com objeto estranho (cadeira virada ou livro) {"position":"875,550","size":"100,100"}
+[[Ignorar objeto e seguir pela porta]] [[Inspecionar objeto]] [[Encontrar "Observador"]] 
+
+
+:: Seguir dica do Observador {"position":"1500,1600","size":"100,100"}
+[[Entrar na porta "saída"]] 
+
+
+:: Tentar a porta {"position":"650,150","size":"100,100"}
+[[Sala com objeto estranho (cadeira virada ou livro)]]
+
+
+:: Terminal com mensagem pessoal\  {"position":"1350,1325","size":"100,100"}
+[[Investigar mensagem pessoal (descobre mais sobre o jogador)]]
+
+
+:: Tocar no glitch {"position":"725,1100","size":"100,100"}
+[[Sala Branca]]
+
+
+:: pegar foto ativa "flashback" {"position":"1300,875","size":"100,100"}
+[[Ignorar a mensagem e seguir para próxima sala]] 
