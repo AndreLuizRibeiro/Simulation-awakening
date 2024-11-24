@@ -1,4 +1,3 @@
-// Dados do jogo
 const cenarios = {
   inicio: {
     descricao: "Você está em uma sala branca. O que deseja fazer?",
@@ -21,6 +20,14 @@ const cenarios = {
     escolhas: [
       { texto: "Investigar profundamente", proximo: "porta_secreta" },
       { texto: "Ignorar e voltar", proximo: "inicio" },
+    ],
+  },
+  porta_secreta: {
+    descricao:
+      "O terminal desliga e voce nota que uma pequena porta apareceu atrás de você. O que fazer?",
+    escolhas: [
+      { texto: "Entrar na porta misteriosa", proximo: "inicio" },
+      { texto: "Ignorar e tentar outra porta", proximo: "tentar_porta" },
     ],
   },
   tentar_porta: {
