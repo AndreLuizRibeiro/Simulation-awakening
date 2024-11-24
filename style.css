@@ -49,3 +49,29 @@ h1 {
   margin-bottom: 20px;
   color: #ffcc00;
 }
+
+/* Estilo comum para todos os botões */
+#aacordar button {
+    background-color: #4CAF50; /* Cor de fundo */
+    color: white;              /* Cor do texto */
+    border: none;              /* Remover borda */
+    padding: 10px 20px;        /* Espaçamento interno */
+    text-align: center;        /* Alinhar texto */
+    text-decoration: none;     /* Remover sublinhado */
+    display: inline-block;     /* Deixar os botões lado a lado */
+    font-size: 16px;           /* Tamanho da fonte */
+    margin: 10px 0;            /* Margem entre os botões */
+    cursor: pointer;          /* Cursor de ponteiro */
+    border-radius: 5px;        /* Bordas arredondadas */
+    transition: background-color 0.3s ease; /* Efeito de transição para mudança de cor */
+}
+
+/* Efeito para o botão "Acordar" (caso você queira personalizá-lo um pouco mais) */
+button#aacordar {
+    background-color: #ff9800; /* Cor diferente para o botão acordar */
+}
+
+button#aacordar:hover {
+    background-color: #f57c00; /* Cor ao passar o mouse */
+}
+
