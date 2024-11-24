@@ -1,90 +1,91 @@
-// Objeto com os cenários e caminhos possíveis
-const caminhos = {
+// Dados do jogo
+const cenarios = {
   inicio: {
-    descricao: "Você está em uma sala branca.",
-    opcoes: [
-      { texto: "Explorar o terminal", proximo: "terminal" },
-      { texto: "Ignorar o terminal e tentar a porta", proximo: "porta_inicial" },
+    descricao: "Você está em uma sala branca. O que deseja fazer?",
+    escolhas: [
+      { texto: "Explorar o terminal", proximo: "explorar_terminal" },
+      { texto: "Tentar a porta", proximo: "tentar_porta" },
     ],
   },
-  terminal: {
-    descricao: "Você encontrou um terminal. O que deseja fazer?",
-    opcoes: [
-      { texto: "Continuar explorando o terminal", proximo: "mensagens_enigmaticas" },
+  explorar_terminal: {
+    descricao:
+      "Você se aproxima do terminal e vê uma tela piscando com linhas de código. O que fazer?",
+    escolhas: [
+      { texto: "Continuar explorando", proximo: "continuar_explorando_terminal" },
+      { texto: "Ignorar e tentar outra porta", proximo: "tentar_porta" },
+    ],
+  },
+  continuar_explorando_terminal: {
+    descricao:
+      "O terminal revela mensagens enigmáticas sobre a 'realidade'. Uma linha exibe 'Erro no Sistema'.",
+    escolhas: [
+      { texto: "Investigar profundamente", proximo: "porta_secreta" },
+      { texto: "Ignorar e voltar", proximo: "inicio" },
+    ],
+  },
+  tentar_porta: {
+    descricao:
+      "A porta leva a uma sala com um objeto estranho. O que você faz?",
+    escolhas: [
+      { texto: "Inspecionar o objeto", proximo: "inspecionar_objeto" },
+      { texto: "Ignorar e seguir em frente", proximo: "sala_com_glitch" },
+    ],
+  },
+  inspecionar_objeto: {
+    descricao:
+      "O objeto contém uma mensagem: 'Você não pertence aqui'. O que fazer?",
+    escolhas: [
+      { texto: "Continuar explorando", proximo: "sala_com_glitch" },
       { texto: "Voltar para a sala inicial", proximo: "inicio" },
     ],
   },
-  mensagens_enigmaticas: {
-    descricao: "O terminal exibe mensagens enigmáticas sobre a 'realidade'.",
-    opcoes: [
-      { texto: "Investigar profundamente", proximo: "erro_terminal" },
-      { texto: "Ignorar e tentar outra porta", proximo: "sala_com_glitches" },
-    ],
-  },
-  erro_terminal: {
-    descricao: "O terminal apresenta um erro. Você encontra uma porta secreta.",
-    opcoes: [
-      { texto: "Entrar na porta secreta", proximo: "nova_sala_terminal" },
-      { texto: "Voltar e investigar melhor a sala inicial", proximo: "inicio" },
-    ],
-  },
-  nova_sala_terminal: {
-    descricao: "Você entrou em uma nova sala com outro terminal.",
-    opcoes: [
-      { texto: "Interagir com o terminal", proximo: "porta_saida" },
-      { texto: "Voltar para a sala inicial", proximo: "inicio" },
-    ],
-  },
-  porta_saida: {
-    descricao: "Você encontrou uma porta marcada como 'Saída'.",
-    opcoes: [
-      { texto: "Entrar na porta 'Saída'", proximo: "inicio" },
-    ],
-  },
-  porta_inicial: {
-    descricao: "Você tentou a porta, mas ela está trancada.",
-    opcoes: [
-      { texto: "Voltar para explorar o terminal", proximo: "terminal" },
-    ],
-  },
-  sala_com_glitches: {
-    descricao: "Você está em uma sala com glitches visuais por toda parte.",
-    opcoes: [
+  sala_com_glitch: {
+    descricao:
+      "A sala começa a distorcer. Você vê um glitch pulsando na parede.",
+    escolhas: [
       { texto: "Tocar no glitch", proximo: "inicio" },
-      { texto: "Ignorar e continuar explorando", proximo: "observador" },
+      { texto: "Ignorar e continuar", proximo: "observador" },
     ],
   },
   observador: {
-    descricao: "Você encontrou o Observador. Ele apresenta um enigma.",
-    opcoes: [
-      { texto: "Seguir a dica do Observador", proximo: "saida_definitiva" },
-      { texto: "Ignorar o Observador", proximo: "sala_com_glitches" },
+    descricao:
+      "Você encontra o Observador. Ele fala enigmas sobre a simulação. O que fazer?",
+    escolhas: [
+      { texto: "Seguir o enigma", proximo: "saida" },
+      { texto: "Ignorar o Observador", proximo: "inicio" },
     ],
   },
-  saida_definitiva: {
-    descricao: "Você resolveu o enigma e encontrou a saída definitiva.",
-    opcoes: [
-      { texto: "Reiniciar o jogo", proximo: "inicio" },
+  saida: {
+    descricao:
+      "Você parece ter quebrado o loop... Mas será mesmo o fim? Reiniciar o jogo?",
+    escolhas: [
+      { texto: "Sim", proximo: "inicio" },
     ],
   },
 };
 
-// Função para renderizar um cenário
-function renderizarCenario(cenarioAtual) {
-  const cenario = caminhos[cenarioAtual];
-  const cenarioDiv = document.getElementById("cenario");
+// Referências
+const cenarioDiv = document.getElementById("cenario");
 
-  // Atualizar a descrição
-  cenarioDiv.innerHTML = `<h1>${cenario.descricao}</h1>`;
-
-  // Adicionar as opções
-  cenario.opcoes.forEach((opcao) => {
-    const botao = document.createElement("button");
-    botao.innerText = opcao.texto;
-    botao.onclick = () => renderizarCenario(opcao.proximo);
-    cenarioDiv.appendChild(botao);
-  });
+// Função para atualizar o cenário
+function atualizarCenario(cenarioId) {
+  const cenario = cenarios[cenarioId];
+  cenarioDiv.innerHTML = `
+    <h1>${cenario.descricao}</h1>
+    ${cenario.escolhas
+      .map(
+        (escolha, index) =>
+          `<button onclick="escolher('${cenarioId}', ${index})">${escolha.texto}</button>`
+      )
+      .join("")}
+  `;
 }
 
-// Inicializar o jogo
-document.addEventListener("DOMContentLoaded", () => renderizarCenario("inicio"));
+// Função para gerenciar escolhas
+function escolher(cenarioAtual, escolhaIndex) {
+  const proximoCenario = cenarios[cenarioAtual].escolhas[escolhaIndex].proximo;
+  atualizarCenario(proximoCenario);
+}
+
+// Iniciar o jogo
+atualizarCenario("inicio");
