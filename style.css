@@ -67,11 +67,11 @@ h1 {
 }
 
 /* Efeito para o botão "Acordar" (caso você queira personalizá-lo um pouco mais) */
-button#aacordar {
+#aacordar button {
     background-color: #ff9800; /* Cor diferente para o botão acordar */
 }
 
-button#aacordar:hover {
+#aacordar:hover  button{
     background-color: #f57c00; /* Cor ao passar o mouse */
 }
 
