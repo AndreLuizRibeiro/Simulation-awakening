@@ -1,53 +1,90 @@
-const story = {
-  start: {
-    text: "Você está em uma sala escura e vê duas portas à sua frente. Qual você escolhe?",
-    image: "images/sala-escura.jpg",
-    choices: [
-      { text: "Porta 1", nextScene: "door1" },
-      { text: "Porta 2", nextScene: "door2" }
-    ]
+// Objeto com os cenários e caminhos possíveis
+const caminhos = {
+  inicio: {
+    descricao: "Você está em uma sala branca.",
+    opcoes: [
+      { texto: "Explorar o terminal", proximo: "terminal" },
+      { texto: "Ignorar o terminal e tentar a porta", proximo: "porta_inicial" },
+    ],
   },
-  door1: {
-    text: "Você entrou na primeira porta e encontrou um tesouro! Fim do jogo.",
-    image: "images/tesouro.jpg",
-    choices: []
+  terminal: {
+    descricao: "Você encontrou um terminal. O que deseja fazer?",
+    opcoes: [
+      { texto: "Continuar explorando o terminal", proximo: "mensagens_enigmaticas" },
+      { texto: "Voltar para a sala inicial", proximo: "inicio" },
+    ],
   },
-  door2: {
-    text: "Você entrou na segunda porta e encontrou um monstro! Fim do jogo.",
-    image: "images/monstro.jpg",
-    choices: []
-  }
+  mensagens_enigmaticas: {
+    descricao: "O terminal exibe mensagens enigmáticas sobre a 'realidade'.",
+    opcoes: [
+      { texto: "Investigar profundamente", proximo: "erro_terminal" },
+      { texto: "Ignorar e tentar outra porta", proximo: "sala_com_glitches" },
+    ],
+  },
+  erro_terminal: {
+    descricao: "O terminal apresenta um erro. Você encontra uma porta secreta.",
+    opcoes: [
+      { texto: "Entrar na porta secreta", proximo: "nova_sala_terminal" },
+      { texto: "Voltar e investigar melhor a sala inicial", proximo: "inicio" },
+    ],
+  },
+  nova_sala_terminal: {
+    descricao: "Você entrou em uma nova sala com outro terminal.",
+    opcoes: [
+      { texto: "Interagir com o terminal", proximo: "porta_saida" },
+      { texto: "Voltar para a sala inicial", proximo: "inicio" },
+    ],
+  },
+  porta_saida: {
+    descricao: "Você encontrou uma porta marcada como 'Saída'.",
+    opcoes: [
+      { texto: "Entrar na porta 'Saída'", proximo: "inicio" },
+    ],
+  },
+  porta_inicial: {
+    descricao: "Você tentou a porta, mas ela está trancada.",
+    opcoes: [
+      { texto: "Voltar para explorar o terminal", proximo: "terminal" },
+    ],
+  },
+  sala_com_glitches: {
+    descricao: "Você está em uma sala com glitches visuais por toda parte.",
+    opcoes: [
+      { texto: "Tocar no glitch", proximo: "inicio" },
+      { texto: "Ignorar e continuar explorando", proximo: "observador" },
+    ],
+  },
+  observador: {
+    descricao: "Você encontrou o Observador. Ele apresenta um enigma.",
+    opcoes: [
+      { texto: "Seguir a dica do Observador", proximo: "saida_definitiva" },
+      { texto: "Ignorar o Observador", proximo: "sala_com_glitches" },
+    ],
+  },
+  saida_definitiva: {
+    descricao: "Você resolveu o enigma e encontrou a saída definitiva.",
+    opcoes: [
+      { texto: "Reiniciar o jogo", proximo: "inicio" },
+    ],
+  },
 };
 
-// Função para exibir uma cena
-function showScene(sceneKey) {
-  const scene = story[sceneKey];
-  const sceneText = document.getElementById("scene-text");
-  const choicesDiv = document.getElementById("choices");
-  const sceneImage = document.getElementById("scene-image");
+// Função para renderizar um cenário
+function renderizarCenario(cenarioAtual) {
+  const cenario = caminhos[cenarioAtual];
+  const cenarioDiv = document.getElementById("cenario");
 
-  // Exibe o texto da cena
-  sceneText.textContent = scene.text;
+  // Atualizar a descrição
+  cenarioDiv.innerHTML = `<h1>${cenario.descricao}</h1>`;
 
-  // Atualiza a imagem da cena, se existir
-  if (scene.image) {
-    sceneImage.src = scene.image;
-    sceneImage.style.display = "block";
-  } else {
-    sceneImage.style.display = "none";
-  }
-
-  // Limpa as escolhas anteriores
-  choicesDiv.innerHTML = "";
-
-  // Cria botões para cada escolha
-  scene.choices.forEach(choice => {
-    const button = document.createElement("button");
-    button.textContent = choice.text;
-    button.onclick = () => showScene(choice.nextScene);
-    choicesDiv.appendChild(button);
+  // Adicionar as opções
+  cenario.opcoes.forEach((opcao) => {
+    const botao = document.createElement("button");
+    botao.innerText = opcao.texto;
+    botao.onclick = () => renderizarCenario(opcao.proximo);
+    cenarioDiv.appendChild(botao);
   });
 }
 
-// Inicia o jogo na primeira cena
-showScene("start");
+// Inicializar o jogo
+document.addEventListener("DOMContentLoaded", () => renderizarCenario("inicio"));
