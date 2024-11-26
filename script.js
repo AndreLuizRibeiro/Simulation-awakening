@@ -1,4 +1,11 @@
 const cenarios = {
+   inicio: {
+    descricao: "Você está em uma sala branca. O que deseja fazer?",
+    escolhas: [
+      { texto: "Explorar o terminal", proximo: "explorar_terminal" },
+      { texto: "Tentar a porta", proximo: "tentar_porta" },
+    ],
+  },
   introducao: {
     descricao: "Algo deu errado no carregamento da simulação, aprese-se antes que seja tarde. Boa Sorte!",
     Escolhas: [
@@ -11,13 +18,6 @@ const cenarios = {
     Escolhas: [
        { texto: "Voltar", proximo: "introducao" },
       { texto: "Sair", proximo: "introducao" },
-    ],
-  }, 
-  inicio: {
-    descricao: "Você está em uma sala branca. O que deseja fazer?",
-    escolhas: [
-      { texto: "Explorar o terminal", proximo: "explorar_terminal" },
-      { texto: "Tentar a porta", proximo: "tentar_porta" },
     ],
   },
   explorar_terminal: {
