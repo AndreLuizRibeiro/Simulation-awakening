@@ -1,4 +1,18 @@
 const cenarios = {
+  introducao: {
+    descricao: "Algo deu errado no carregamento da simulação, aprese-se antes que seja tarde. Boa Sorte!",
+    Escolhas: [
+       { texto: "Acordar", proximo: "inicio" },
+      { texto: "Creditos", proximo: "creditos" },
+    ],
+  },
+  creditos: {
+    descricao: "Jogo desenvolvido por alguem",
+    Escolhas: [
+       { texto: "Voltar", proximo: "introducao" },
+      { texto: "Sair", proximo: "introducao" },
+    ],
+  }, 
   inicio: {
     descricao: "Você está em uma sala branca. O que deseja fazer?",
     escolhas: [
