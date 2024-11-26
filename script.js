@@ -112,5 +112,5 @@ function escolher(cenarioAtual, escolhaIndex) {
 function iniciarJogo() {
   // Esconde o botão "Acordar" e exibe o primeiro cenário
   document.getElementById("cenarios").innerHTML = "";
-  atualizarCenario("inicio");
+  atualizarCenario("introducao");
 }
